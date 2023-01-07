@@ -1,4 +1,4 @@
-# Spring Boot JDBC + MySQL Example
+# Spring Boot JPA + MySQL Example
 
 This is a simple Spring Boot application that uses Spring JPA to connect to MySQL database.
 
