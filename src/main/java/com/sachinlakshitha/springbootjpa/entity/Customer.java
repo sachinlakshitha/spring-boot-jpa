@@ -1,15 +1,13 @@
-package com.sachinlakshitha.springbootjpa.model;
+package com.sachinlakshitha.springbootjpa.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.Date;
 
 @Entity
-@Getter
-@Setter
+@Data
 public class Customer {
     @Id
     private String id;

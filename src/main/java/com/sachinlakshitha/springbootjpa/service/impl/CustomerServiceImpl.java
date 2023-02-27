@@ -1,11 +1,13 @@
 package com.sachinlakshitha.springbootjpa.service.impl;
 
 import com.sachinlakshitha.springbootjpa.dto.CustomerDto;
-import com.sachinlakshitha.springbootjpa.model.Customer;
+import com.sachinlakshitha.springbootjpa.entity.Customer;
 import com.sachinlakshitha.springbootjpa.repository.CustomerRepository;
 import com.sachinlakshitha.springbootjpa.service.CustomerService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +28,21 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public List<CustomerDto> findAll() {
         return customerRepository.findAll().stream().map(this::convertToDto).toList();
+    }
+
+    @Override
+    public List<CustomerDto> findAllByPage(Pageable page) {
+        return customerRepository.findAll(page).stream().map(this::convertToDto).toList();
+    }
+
+    @Override
+    public List<CustomerDto> findAllBySort(Sort sort) {
+        return customerRepository.findAll(sort).stream().map(this::convertToDto).toList();
+    }
+
+    @Override
+    public List<CustomerDto> findAllBySortAndPage(Pageable page) {
+        return customerRepository.findAll(page).stream().map(this::convertToDto).toList();
     }
 
     @Override
